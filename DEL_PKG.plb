@@ -10,7 +10,6 @@ create or replace PACKAGE BODY DEL_PKG AS
     return l_ddn_last_nr;
   end;
 
-
   procedure create_delegation(
     p_dde_id out DEL_DELEGATIONS.DDE_ID%TYPE,
     p_dve_id in DEL_DELEGATIONS.DVE_ID%TYPE,
@@ -57,7 +56,6 @@ procedure approve_delegation(
       DDE_DEL_NR = to_char(l_dde_del_nr) || '/' || nvl2(p_ddn_year,p_ddn_year,to_char( sysdate ,'YYYY' ))
     where DDE_ID = p_dde_id;
     
-    -- Dodaæ numerowanie delegacji!
     
   END approve_delegation;
   
