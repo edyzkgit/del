@@ -1,3 +1,3 @@
 select 
-   sysdate 
+   sysdate +7
 from dual;
