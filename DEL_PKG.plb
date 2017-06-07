@@ -5,6 +5,8 @@ create or replace PACKAGE BODY DEL_PKG AS
   is
     l_ddn_last_nr DEL_DEL_NRS.DDN_LAST_NR%TYPE;
   begin
+  
+    -- funkcja zwraca kolejny numer delegacji i zwiêksza licznik (sztuczna sekwencja)
     select DDN_LAST_NR into l_ddn_last_nr from DEL_DEL_NRS where DDN_YEAR=nvl2(p_ddn_year,p_ddn_year, to_char(sysdate,'YYYY'));
     update DEL_DEL_NRS set DDN_LAST_NR=DDN_LAST_NR+1 where DDN_YEAR=nvl2(p_ddn_year,p_ddn_year, to_char(sysdate,'YYYY'));
     return l_ddn_last_nr;
